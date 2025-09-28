@@ -48,10 +48,10 @@
     <div class="layout__top">
       <ul class="tabs tabs__list">
         <li class="tabs__item">
-          <RouterLink class="tabs__link" :class="{ active: isHome }" to="/">Главная</RouterLink>
+          <RouterLink class="tabs__link" :class="{ active: isHome }" to="/">Main</RouterLink>
         </li>
         <li class="tabs__item">
-          <RouterLink class="tabs__link" :class="{ active: isWeek }" to="/week">Погода за неделю</RouterLink>
+          <RouterLink class="tabs__link" :class="{ active: isWeek }" to="/week">Week forecast</RouterLink>
         </li>
       </ul>
 
@@ -63,13 +63,13 @@
     <slot />
 
     <div v-if="weather.loading" class="loading-overlay">
-      <div class="spinner" role="status" aria-label="загрузка"></div>
+      <div class="spinner" role="status" aria-label="loading"></div>
     </div>
 
     <ErrorOverlay
       v-if="weather.error"
       :message="weather.error"
-      title="ошибка загрузки"
+      title="loading error"
     />
   </div>
 </template>

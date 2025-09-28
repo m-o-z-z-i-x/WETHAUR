@@ -353,13 +353,6 @@ html, .popular__slider, .week__days {
   line-height: 21.6px;
 }
 
-.time-wrap__part {
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 21.6px;
-  text-transform: capitalize;
-}
-
 .icon-button {
   padding: 10px;
   border-radius: 50%;
@@ -1027,8 +1020,12 @@ html, .popular__slider, .week__days {
     line-height: 18px;
   }
 
-  .time-wrap__time, .time-wrap__part {
-    font-size: 9px !important;
+  .time-wrap {
+    gap: 0;
+  }
+
+  .time-wrap__time {
+    font-size: 14px !important;
     line-height: 1.2;
   }
 

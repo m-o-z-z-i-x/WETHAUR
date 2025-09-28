@@ -3,7 +3,7 @@
   import { useWeatherStore } from "@/stores/weather.js"
   import WeatherLayout from "@/layouts/WeatherLayout.vue"
   import PopularCities from "@/components/PopularCities.vue"
-  import { formatDateFull, formatHour, partOfDay, describeCode, pickWeatherIcon } from "@/composables/useWeatherFormat.js"
+  import { formatDateFull, formatHour, describeCode, pickWeatherIcon } from "@/composables/useWeatherFormat.js"
 
   const weather = useWeatherStore()
 
@@ -39,7 +39,7 @@
     <div class="main">
       <div>
         <header class="main__header">
-          <h1 class="main__title">Погода в городе {{ cityName }}</h1>
+          <h1 class="main__title">Weather in {{ cityName }}</h1>
           <p class="main__date">{{ todayStr }}</p>
         </header>
 
@@ -55,8 +55,8 @@
 
                 <div class="main__right">
                   <div class="main__info capitalize">{{ describeCode(weather.current?.weatherCode, weather.current?.wind) }}</div>
-                  <div class="main__info">Влажность: {{ weather.current?.humidity ?? "–" }} %</div>
-                  <div class="main__info">Ветер: {{ weather.current?.wind ?? "–" }} м/с</div>
+                  <div class="main__info">Humidity: {{ weather.current?.humidity ?? "–" }} %</div>
+                  <div class="main__info">Wind: {{ weather.current?.wind ?? "–" }} m/s</div>
                 </div>
               </div>
 
@@ -72,7 +72,6 @@
                 <div v-for="h in nextHours" :key="h.time" class="hourly-compact__row">
                   <div class="time-wrap">
                     <div class="time-wrap__time">{{ formatHour(h.time) }}</div>
-                    <div class="time-wrap__part">{{ partOfDay(h.time) }}</div>
                   </div>
 
                   <div class="hourly-compact__temp">{{ Math.round(h.temperature) }}°</div>
@@ -82,7 +81,7 @@
                     <div class="hourly-compact__desc-text">{{ describeCode(h.weatherCode, h.wind) }}</div>
                   </div>
 
-                  <div class="hourly-compact__wind">{{ Math.round(h.wind ?? 0) }} м/с</div>
+                  <div class="hourly-compact__wind">{{ Math.round(h.wind ?? 0) }} m/s</div>
                   <div class="hourly-compact__hum">{{ Math.round(h.humidity ?? 0) }}%</div>
                 </div>
               </div>

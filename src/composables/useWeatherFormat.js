@@ -1,7 +1,7 @@
 export const formatDateFull = (iso) => {
   try {
     const d = new Date(iso)
-    return new Intl.DateTimeFormat("ru-RU", { weekday: "long", day: "numeric", month: "long" }).format(d)
+    return new Intl.DateTimeFormat("en-US", { weekday: "long", day: "numeric", month: "long" }).format(d)
   } catch {
     return ""
   }
@@ -9,7 +9,7 @@ export const formatDateFull = (iso) => {
 
 export const formatHour = (iso) => {
   try {
-    return new Intl.DateTimeFormat("ru-RU", { hour: "2-digit", minute: "2-digit" }).format(new Date(iso))
+    return new Intl.DateTimeFormat("en-US", { hour: "2-digit", minute: "2-digit" }).format(new Date(iso))
   } catch {
     return ""
   }
@@ -17,21 +17,7 @@ export const formatHour = (iso) => {
 
 export const formatWeekday = (iso) => {
   try {
-    return new Intl.DateTimeFormat("ru-RU", { weekday: "long" }).format(new Date(iso))
-  } catch {
-    return ""
-  }
-}
-
-export const partOfDay = (iso) => {
-  try {
-    const h = new Date(iso).getHours()
-
-    if (h < 6) return "ночь"
-    if (h < 12) return "утро"
-    if (h < 18) return "день"
-
-    return "вечер"
+    return new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(new Date(iso))
   } catch {
     return ""
   }
@@ -78,11 +64,11 @@ export const pickWeatherIcon = (code, wind) => {
 export const describeCode = (code, wind) => {
   const category = getWeatherCategory(code, wind)
 
-  if (category === "wind") return "ветренно"
-  if (category === "sun") return "солнечно"
-  if (category === "cloud") return "облачно"
-  if (category === "fog") return "туман"
-  if (category === "snow") return "снег"
+  if (category === "wind") return "windy"
+  if (category === "sun") return "sunny"
+  if (category === "cloud") return "cloudy"
+  if (category === "fog") return "fog"
+  if (category === "snow") return "snow"
   // category === "rain"
-  return "дождь"
+  return "rain"
 }

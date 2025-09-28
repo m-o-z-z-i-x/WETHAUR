@@ -37,7 +37,7 @@
 <template>
   <section class="popular">
     <div class="popular__header">
-      <h2 class="popular__title">Погода в популярных городах</h2>
+      <h2 class="popular__title">Weather in popular cities</h2>
 
       <button type="button" class="icon-button">
         <img src="@/assets/icons/info.svg" alt="info">
@@ -69,7 +69,7 @@
             <img :src="pickWeatherIcon(weather.popularData[c.name]?.weatherCode, weather.popularData[c.name]?.wind)" :alt="describeCode(weather.popularData[c.name]?.weatherCode, weather.popularData[c.name]?.wind)" width="60" height="60" />
 
             <p class="popular__temp">{{ Math.round(weather.popularData[c.name]?.temperature ?? 0) }}°</p>
-            <p class="popular__extra">влажность: {{ weather.popularData[c.name]?.humidity ?? "–" }}%</p>
+            <p class="popular__extra">humidity: {{ weather.popularData[c.name]?.humidity ?? "–" }}%</p>
           </div>
         </div>
       </div>
@@ -101,7 +101,7 @@
               <img :src="pickWeatherIcon(weather.popularData[c.name]?.weatherCode, weather.popularData[c.name]?.wind)" :alt="describeCode(weather.popularData[c.name]?.weatherCode, weather.popularData[c.name]?.wind)" width="60" height="60" />
 
               <p class="popular__temp">{{ Math.round(weather.popularData[c.name]?.temperature ?? 0) }}°</p>
-              <p class="popular__extra">влажность: {{ weather.popularData[c.name]?.humidity ?? "–" }}%</p>
+              <p class="popular__extra">humidity: {{ weather.popularData[c.name]?.humidity ?? "–" }}%</p>
             </div>
           </div>
         </div>

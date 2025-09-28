@@ -25,7 +25,7 @@
   <div class="city-select" ref="root">
     <button class="city-select__button" type="button" :aria-expanded="open ? 'true' : 'false'" @click="open = !open" :class="{ 'city-select__caret--up': open }">
       <span>{{ weather.selectedCity?.name }}</span>
-      <img class="city-select__caret-icon" src="@/assets/icons/arrow-down.svg" alt="стрелка" />
+      <img class="city-select__caret-icon" src="@/assets/icons/arrow-down.svg" alt="arrow" />
     </button>
 
     <div class="city-select__menu anim-up" v-show="open">

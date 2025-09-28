@@ -7,7 +7,7 @@
 
   const weather = useWeatherStore()
 
-  // первичная загрузка недельного прогноза и популярных городов
+  // initial load of week forecast and popular cities
   onMounted(async () => {
     if (!weather.daily.length) await weather.fetchWeather()
     if (!Object.keys(weather.popularData).length) await weather.fetchPopularCities()
@@ -20,7 +20,7 @@
 <template>
   <WeatherLayout>
     <header class="week__header">
-      <h1 class="week__title">Погода в городе {{ cityName }}</h1>
+      <h1 class="week__title">Weather in {{ cityName }}</h1>
       <p class="week__subtitle">{{ todayStr }}</p>
     </header>
 

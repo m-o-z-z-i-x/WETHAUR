@@ -3,7 +3,7 @@
 
   const props = defineProps({
     message: { type: String, default: "" },
-    title: { type: String, default: "ошибка" }
+    title: { type: String, default: "error" }
   })
 
   const onBackdropClick = () => {}
@@ -27,12 +27,12 @@
 
 <template>
   <div class="w-overlay" @click.self="onBackdropClick">
-    <div class="w-modal w-modal--error w-modal--center anim-up" role="alertdialog" aria-modal="true" aria-label="ошибка">
+    <div class="w-modal w-modal--error w-modal--center anim-up" role="alertdialog" aria-modal="true" aria-label="error">
       <div class="w-modal__body">
         <div class="w-modal__title">{{ props.title }}</div>
         <div class="w-modal__text">{{ props.message }}</div>
 
-        <button type="button" class="w-modal__hint w-link" @click="reload">обновите страницу и попробуйте снова</button>
+        <button type="button" class="w-modal__hint w-link" @click="reload">refresh the page and try again</button>
       </div>
     </div>
   </div>

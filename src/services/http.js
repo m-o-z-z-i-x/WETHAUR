@@ -1,11 +1,11 @@
 import axios from "axios"
 
-// создаем общий инстанс для внешних api
+// create a common instance for external apis
 export const http = axios.create({
   timeout: 10000,
 })
 
-// объявляем перехватчик запросов
+// declare a request interceptor
 http.interceptors.request.use(
   (config) => {
     return config
@@ -15,13 +15,13 @@ http.interceptors.request.use(
   }
 )
 
-// объявляем перехватчик ответов
+// declare a response interceptor
 http.interceptors.response.use(
   (response) => response,
   (error) => {
     const message = error?.response?.data?.message
       || error?.message
-      || "ошибка сети"
+      || "network error"
 
     return Promise.reject(new Error(message))
   }

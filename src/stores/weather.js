@@ -4,7 +4,7 @@ import http from "@/services/http.js"
 export const useWeatherStore = defineStore("weather", {
   state: () => ({
     selectedCity: {
-      name: "Казань",
+      name: "Kazan",
       latitude: 55.7887,
       longitude: 49.1221,
       country: "RU"
@@ -16,27 +16,27 @@ export const useWeatherStore = defineStore("weather", {
     daily: [],
     popularCities: [
       {
-        name: "Москва",
+        name: "Moscow",
         latitude: 55.75222,
         longitude: 37.61556
       },
       {
-        name: "Новосибирск",
+        name: "Novosibirsk",
         latitude: 55.03442,
         longitude: 82.94339
       },
       {
-        name: "Краснодар",
+        name: "Krasnodar",
         latitude: 45.04484,
         longitude: 38.97603
       },
       {
-        name: "Красноярск",
+        name: "Krasnoyarsk",
         latitude: 56.01839,
         longitude: 92.86717
       },
       {
-        name: "Тула",
+        name: "Tula",
         latitude: 54.2048,
         longitude: 37.618
       }
@@ -55,7 +55,7 @@ export const useWeatherStore = defineStore("weather", {
       }
     },
     async fetchWeather() {
-      // получаем текущую/почасовую/недельную погоду раздельно, чтобы снизить шанс таймаута
+      // get current/hourly/weekly weather separately to reduce the chance of a timeout
       this.loading = true
       this.error = ""
 
@@ -66,7 +66,7 @@ export const useWeatherStore = defineStore("weather", {
         currentUrl.searchParams.set("latitude", String(latitude))
         currentUrl.searchParams.set("longitude", String(longitude))
 
-        // запрашиваем текущие показатели и почасовые данные
+        // request current indicators and hourly data
         currentUrl.searchParams.set("current", [
           "temperature_2m",
           "relative_humidity_2m",
@@ -88,7 +88,7 @@ export const useWeatherStore = defineStore("weather", {
         dailyUrl.searchParams.set("latitude", String(latitude))
         dailyUrl.searchParams.set("longitude", String(longitude))
 
-        // daily: совместимые имена показателей
+        // daily: compatible indicator names
         dailyUrl.searchParams.set("daily", [
           "weather_code",
           "temperature_2m_max",
@@ -160,7 +160,7 @@ export const useWeatherStore = defineStore("weather", {
 
         this.daily = daily
       } catch (e) {
-        this.error = `Ошибка загрузки погоды: ${e?.message || "Неизвестная ошибка"}`
+        this.error = `Weather loading error: ${e?.message || "Unknown error"}`
       } finally {
         this.loading = false
       }

@@ -1,72 +1,56 @@
-## О проекте
+## About the Project
 
-WETHAUR — веб‑приложение для просмотра текущей погоды, почасового прогноза и прогноза на 7 дней по выбранному городу. Проект демонстрирует работу с Vue 3 (Composition API), Pinia, Vue Router и Axios, интеграцию с внешними API, адаптивный UI, скелетон‑загрузчики и анимации
+This is a web application for viewing the current weather, hourly forecast, and 7-day forecast for a selected city. The project demonstrates working with Vue 3, Pinia, Vue Router, and Axios, integration with external APIs, responsive UI, skeleton loaders, and animations
 
 > [!NOTE]
-> Источник данных — Open‑Meteo Forecast API. Прогноз запрашивается раздельно: текущая/почасовая погода и 7‑дневный прогноз
+> Data source - Open-Meteo Forecast API. The forecast is requested separately: current/hourly weather and 7-day forecast.
 
-## Демо
+## Demo
 
 <img src="public/assets/webp/demo.webp">
 
-## Требования к проекту
+## Technologies
 
-### Основные функции
-1. **Выбор города**
-   - быстрый выбор из списка популярных городов
-2. **Текущая и почасовая погода**
-   - температура, влажность, ветер, иконки состояния
-   - компактная лента почасового прогноза (шаг 3 часа)
-3. **Прогноз на 7 дней**
-   - сводка по дням: макс/мин температура, иконка и краткое описание
-   - переключение между вкладками "Главная" и "Погода за неделю"
+- **Vue.js 3** - UI (Composition API)
+- **Vite** - project build
+- **Pinia** - state management
+- **Vue Router** - routing
+- **Axios** - HTTP client
+- **Open-Meteo API** - forecast data
 
-## Структура проекта
+## Main Features
 
-### Основные компоненты
+1. **City selection**
+   - Quick selection from a list of popular cities
+2. **Current and hourly weather**
+   - Temperature, humidity, wind, status icons
+   - Compact hourly forecast feed (3-hour step)
+3. **7-day forecast**
+   - Daily summary: max/min temperature, icon, and brief description
+   - Switching between "Main" and "Week's weather" tabs
 
-- `src/components/CitySelect.vue` — селектор города
-- `src/components/PopularCities.vue` — карточки популярных городов
-- `src/components/ErrorOverlay.vue` — модалка ошибок
-- `src/views/MainView.vue` — текущая погода и компактная почасовая лента
-- `src/views/WeekView.vue` — 7‑дневный прогноз
-- `src/layouts/WeatherLayout.vue` — общий лейаут: вкладки, селектор города, спиннер, оверлеи
-- `src/stores/weather.js` — Pinia‑хранилище: выбор города, загрузка current/hourly/daily, популярные города
-- `src/services/http.js` — единый Axios‑клиент с таймаутом и перехватчиками
-- `src/composables/useWeatherFormat.js` — форматирование дат/времени, выбор иконок по коду погоды
+## Technical Features
 
-### Технологии
+- SPA on Vue 3 (Composition API)
+- Routes: `/` (current and hourly), `/week` (7 days)
+- Build with Vite, alias `@` for `src`
+- Pinia store: separate requests for current/hourly and daily
+- Centralized Axios client: 10s timeout, interceptors, error normalization
+- Responsive layout, skeleton loaders, animations
 
-- **Vue.js 3** — UI (Composition API)
-- **Vite** — сборка проекта
-- **Pinia** — управление состоянием
-- **Vue Router** — маршрутизация
-- **Axios** — HTTP‑клиент
-- **Open‑Meteo API** — данные прогноза
+## How to Run
 
-## Как запустить
-
-1. **Установка зависимостей:**
+1. **Install dependencies:**
    ```bash
    npm install
    ```
 
-2. **Запуск в режиме разработки:**
+2. **Run in development mode:**
    ```bash
    npm run dev
    ```
 
-3. **Сборка:**
+3. **Build the project:**
    ```bash
    npm run build
    ```
-
-## Технические особенности
-
-- SPA на Vue 3 (Composition API)
-- Маршруты: `/` (текущая и почасовая), `/week` (7 дней)
-- Сборка на Vite, алиас `@` на `src`
-- Pinia‑хранилище: раздельные запросы current/hourly и daily
-- Централизованный Axios‑клиент: таймаут 10с, перехватчики, нормализация ошибок
-- Адаптивная вёрстка, скелетон‑загрузчики, анимации
-- Блокировка скролла на время загрузки и при модалках
