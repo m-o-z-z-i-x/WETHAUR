@@ -17,6 +17,7 @@
   onUnmounted(() => {
     const prev = document.body.dataset.prevOverflow || ""
     document.body.style.overflow = prev
+
     delete document.body.dataset.prevOverflow
   })
 

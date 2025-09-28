@@ -23,8 +23,6 @@ export const formatWeekday = (iso) => {
   }
 }
 
-// Centralized, simplified weather mapping limited to available icons
-// Categories: sun, cloud, rain, snow, fog, wind
 import sunIcon from "@/assets/icons/sun.svg"
 import cloudIcon from "@/assets/icons/cloud.svg"
 import rainIcon from "@/assets/icons/rain.svg"
@@ -43,16 +41,12 @@ export const iconByCategory = {
 
 export const getWeatherCategory = (code, wind) => {
   if (code == null) return "cloud"
-
   if (typeof wind === "number" && wind >= 10) return "wind"
-
-  // Open-Meteo weather codes simplified to available icon categories
   if ([45, 48].includes(code)) return "fog"
   if ([71, 73, 75, 77, 85, 86].includes(code)) return "snow"
   if ([0].includes(code)) return "sun"
   if ([1, 2, 3].includes(code)) return "cloud"
 
-  // Everything else (drizzle, rain, freezing rain, thunderstorm, mixed) -> rain
   return "rain"
 }
 
@@ -69,6 +63,6 @@ export const describeCode = (code, wind) => {
   if (category === "cloud") return "cloudy"
   if (category === "fog") return "fog"
   if (category === "snow") return "snow"
-  // category === "rain"
+
   return "rain"
 }
